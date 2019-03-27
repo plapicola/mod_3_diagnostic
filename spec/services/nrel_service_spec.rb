@@ -11,7 +11,9 @@ describe NRELService do
     it 'returns a list of all public electric and propane stations within limit miles' do
       service = NRELService.new
 
-      facilities = NRELService.nearest_stations("80208")
+      VCR.use_cassette("services/nrel_service") do
+        facilities = service.nearest_stations("80208")
+      end
 
       expect(facilities).to be_a(Hash)
       expect(facilities).to have_key(:total_results)
