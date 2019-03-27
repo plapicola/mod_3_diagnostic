@@ -5,7 +5,7 @@ class SearchFacade
   end
 
   def stations
-    
+
   end
 
   def total_station_count
