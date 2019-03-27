@@ -1,0 +1,12 @@
+<h1>Stations Found: <%= facade.station_count %></h1>
+
+<section class="stations">
+  <% facade.stations.each do |station| %>
+    <h3>Name: <%= station.name %></h3>
+    <p>Address: <%= station.address %></p>
+    <p>Fuel Types: <%= station.fuel_types %></p>
+    <p>Distance: <%= station.distance %></p>
+    <p>Access Times: <%= station.access_times %></p>
+    <hr/>
+  <% end %>
+</section>

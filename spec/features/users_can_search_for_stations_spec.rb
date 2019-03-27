@@ -5,7 +5,7 @@ describe 'Searching' do
     it 'I can search for stations by zipcode' do
       visit root_path
 
-      fill_in :search, with: '80206'
+      fill_in 'q', with: '80206'
 
       click_on 'Locate'
 
