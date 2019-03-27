@@ -6,7 +6,7 @@ class SearchFacade
 
   def stations
     found_stations = @nrel_service.nearest_stations(@zipcode)[:fuel_stations]
-    found_stations.map do |station_info|
+    found_stations[0..14].map do |station_info|
       Facility.new(station_info)
     end
   end

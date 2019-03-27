@@ -14,10 +14,10 @@ describe SearchFacade do
       VCR.use_cassette("facades/search_facade") do
         expect(facade.stations.count).to be <= (15)
         expect(facade.stations.first).to be_a(Facility)
-        facade.facilities.each_cons(2) do |facility_1, facility_2|
+        facade.stations.each_cons(2) do |facility_1, facility_2|
           expect(facility_1.distance).to be <= (facility_2.distance)
         end
-        expect(facade.facilities.last.distance).to be <= (5.0)
+        expect(facade.stations.last.distance).to be <= (5.0)
       end
     end
   end
