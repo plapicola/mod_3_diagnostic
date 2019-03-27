@@ -24,6 +24,9 @@ describe NRELService do
         expect(facilities[:fuel_stations][0]).to have_key :fuel_type_code
         expect(facilities[:fuel_stations][0]).to have_key :distance
         expect(facilities[:fuel_stations][0]).to have_key :access_days_time
+        facilities[:fuel_stations].each do |station|
+          expect(station[:access_code]).to eq("public")
+        end
       end
     end
   end
