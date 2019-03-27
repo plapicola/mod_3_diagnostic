@@ -2,11 +2,13 @@
 
 <section class="stations">
   <% facade.stations.each do |station| %>
-    <h3>Name: <%= station.name %></h3>
-    <p>Address: <%= station.address %></p>
-    <p>Fuel Types: <%= station.fuel_types %></p>
-    <p>Distance: <%= station.distance %></p>
-    <p>Access Times: <%= station.access_times %></p>
-    <hr/>
+    <section class="station">
+      <h3>Name: <%= station.name %></h3>
+      <p>Address: <%= station.address %></p>
+      <p>Fuel Types: <%= station.fuel_types %></p>
+      <p>Distance: <%= station.distance %></p>
+      <p>Access Times: <%= station.access_times %></p>
+      <hr/>
+    </section>
   <% end %>
 </section>

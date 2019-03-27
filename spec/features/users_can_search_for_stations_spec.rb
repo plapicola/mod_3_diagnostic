@@ -6,22 +6,23 @@ describe 'Searching' do
       visit root_path
 
       fill_in 'q', with: '80206'
+      VCR.use_cassette('features/search') do
+        click_on 'Locate'
 
-      click_on 'Locate'
+        expect(current_path).to eq(search_path)
 
-      expect(current_path).to eq(search_path)
+        stations = page.find_all('.station')
 
-      stations = page.find_all('.station')
+        expect(page).to have_content "Stations Found:"
+        expect(stations.count).to eq(15)
 
-      expect(page).to have_content "Stations Found:"
-      expect(stations.count).to eq(15)
-
-      within stations.first do
-        expect(page).to have_content 'Name:'
-        expect(page).to have_content 'Address:'
-        expect(page).to have_content 'Fuel Types:'
-        expect(page).to have_content 'Distance:'
-        expect(page).to have_content 'Access Times:'
+        within stations.first do
+          expect(page).to have_content 'Name:'
+          expect(page).to have_content 'Address:'
+          expect(page).to have_content 'Fuel Types:'
+          expect(page).to have_content 'Distance:'
+          expect(page).to have_content 'Access Times:'
+        end
       end
     end
   end
